@@ -1,5 +1,5 @@
 # http-repeater
-`Http::Repeater` is a request extension for `HTTP` module and inspired by Burpsuite Repeater tool.
+This is a request extension for `HTTP` module and inspired by Burpsuite Repeater tool.
 
 ## Installation
 
