@@ -6,7 +6,7 @@ module HTTP
 
       def json
         begin
-          JSON.parse(to_s)
+          JSON.parse(to_s, {symbolize_names: true})
         rescue JSON::ParserError => e
           nil
         end
