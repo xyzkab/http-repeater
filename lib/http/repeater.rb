@@ -1,5 +1,6 @@
 require 'http'
 require 'http/configuration'
+require 'http/response/json'
 
 module HTTP
   
