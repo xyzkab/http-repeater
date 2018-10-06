@@ -22,7 +22,11 @@ Here's some simple examples to get you started:
 ```ruby
 >> HTTP::Repeater.base_uri = {host: "my.private.api", ssl: true}
 => {:host=>"my.private.api"}
->> HTTP::Repeater.get("/users")
+>> request = HTTP::Repeater.get("/users")
 => #<HTTP::Response/1.1 200 OK { "Content-Type"=>"application/json", "Connection"=>"close"}>
+>> request.json?
+=> true
+>> request.json
+=> {"message": "HelloWorld"}
 
 ```
