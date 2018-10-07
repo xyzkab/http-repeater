@@ -27,6 +27,6 @@ Here's some simple examples to get you started:
 >> request.json?
 => true
 >> request.json
-=> {"message": "HelloWorld"}
+=> {:message => "HelloWorld"}
 
 ```
