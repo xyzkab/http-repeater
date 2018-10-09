@@ -14,6 +14,12 @@ module HTTP
       branch(options).request verb, uri
     end
 
+    def self.branch(options)
+      options[:headers] ||= {}
+      options[:headers].merge!(base_headers)
+      HTTP::Client.new(options)
+    end
+
     def self.after_configure
       @configuration
     end
