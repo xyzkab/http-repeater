@@ -20,13 +20,23 @@ $ bundle install
 Here's some simple examples to get you started:
 
 ```ruby
->> HTTP::Repeater.base_uri = {host: "my.private.api", ssl: true}
-=> {:host=>"my.private.api"}
+>> require 'http/repeater'
+=> true
+>> class MyPrivateAPI
+>>   extend HTTP::Configuration::Mixin
+>> end
+=> MyPrivateAPI
+>> MyPrivateAPI.configure do |conf|
+?>   conf.base_uri.host = "my.private.api"
+>>   conf.base_uri.ssl  = true
+>>   conf.base_headers.content_type = "application/json"
+>> end
+=> #<HTTP::Configuration:0x0000561dd25be488 @base_uri=#<HTTP::Configuration::BaseURI:0x0000561dd25be410 @host="my.private.api", @port=80, @ssl=true>, @base_headers=#<HTTP::Configuration::BaseHeaders:0x0000561dd25be398 @headers=#<HTTP::Headers {"Content-Type"=>"application/json"}>>>
 >> request = HTTP::Repeater.get("/users")
 => #<HTTP::Response/1.1 200 OK { "Content-Type"=>"application/json", "Connection"=>"close"}>
 >> request.json?
 => true
 >> request.json
-=> {:message => "HelloWorld"}
+=> {:users => [{:id => 1, :name => "administrator"}]}
 
 ```
