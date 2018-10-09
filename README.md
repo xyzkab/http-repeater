@@ -22,11 +22,7 @@ Here's some simple examples to get you started:
 ```ruby
 >> require 'http/repeater'
 => true
->> class MyPrivateAPI
->>   extend HTTP::Configuration::Mixin
->> end
-=> MyPrivateAPI
->> MyPrivateAPI.configure do |conf|
+>> HTTP::Repeater.configure do |conf|
 ?>   conf.base_uri.host = "my.private.api"
 >>   conf.base_uri.ssl  = true
 >>   conf.base_headers.content_type = "application/json"
