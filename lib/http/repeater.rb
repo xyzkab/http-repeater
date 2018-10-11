@@ -15,8 +15,12 @@ module HTTP
     end
 
     def self.branch(options)
-      options[:headers] ||= {}
-      options[:headers].merge!(base_headers)
+      if options.class == HTTP::Options
+        options.headers.merge!(base_headers)
+      else
+        options[:headers] ||= {}
+        options[:headers].merge!(base_headers)
+      end
       HTTP::Client.new(options)
     end
 
